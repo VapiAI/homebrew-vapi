@@ -6,7 +6,11 @@ class Sipp < Formula
       revision: "e3b7748d7be7f32dcaeeed5ccd241a342635ac23"
   license "GPL-2.0-or-later"
 
-  bottle :unneeded
+  # Force building from source
+  pour_bottle? do
+    reason "This formula is configured to always build from source."
+    satisfy { false }
+  end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
@@ -15,6 +19,9 @@ class Sipp < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Ensure we're building from source
+    ENV["HOMEBREW_BUILD_FROM_SOURCE"] = "1"
+
     args = %w[
       -DUSE_PCAP=1
       -DUSE_SSL=1
