@@ -2,7 +2,7 @@ class Sipp < Formula
   desc "Traffic generator for the SIP protocol with RTP support"
   homepage "https://sipp.sourceforge.net/"
   url "https://github.com/SIPp/sipp/archive/v3.7.2.tar.gz"
-  sha256 "28919e1a8a1af1e1e62f3e5974959d73ed9b3e6f5a7b7d33f761e790072cf564"
+  sha256 "bf21b2bc220145418d0c73262572f2f161c2a297ba02d271d9b72b48a2530240"
   license "GPL-2.0-or-later"
 
   depends_on "cmake" => :build
