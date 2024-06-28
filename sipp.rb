@@ -17,15 +17,18 @@ class Sipp < Formula
 
   uses_from_macos "libpcap"
   uses_from_macos "ncurses"
+  uses_from_macos "gsl"
+  uses_from_macos "sctp"
 
   def install
     # Ensure we're building from source
     ENV["HOMEBREW_BUILD_FROM_SOURCE"] = "1"
 
     args = %w[
-      -DUSE_PCAP=1
       -DUSE_SSL=1
-      -DUSE_RTP_STREAM=1
+      -DUSE_SCTP=1
+      -DUSE_PCAP=1
+      -DUSE_GSL=1
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
